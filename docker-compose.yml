@@ -5,16 +5,14 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: examdb205
-      # MYSQL_USER: klu
-      # MYSQL_PASSWORD: klu
     ports:
       - "3307:3306"
     volumes:
-      - mysql-data:/var/lib/mysql   # volume added here
+      - mysql-data:/var/lib/mysql   
 
   backend:
     image: sreyashreddy/2300032277-backend:latest
-    container_name: backend
+    container_name: springboot
     ports:
       - "2025:2000"
     depends_on:
@@ -25,7 +23,7 @@ services:
 
   frontend:
     image: sreyashreddy/2300032277-frontend:latest
-    container_name: frontend
+    container_name: react
     ports:
       - "3001:80"
     depends_on:
